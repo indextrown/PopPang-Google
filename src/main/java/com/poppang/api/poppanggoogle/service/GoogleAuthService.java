@@ -21,7 +21,7 @@ public class GoogleAuthService {
 
         // 3. DB 확인 (없으면 신규 생성)
         User user = userService.findUserByUid(uid)
-                .orElseGet(() -> userService.createUser(uid, "google"));
+                .orElseGet(() -> userService.createUser(uid, "google", email));
 
         // 4. DTO로 변환해서 반환
         return new GoogleUserResponse(user.getUid(), email);
